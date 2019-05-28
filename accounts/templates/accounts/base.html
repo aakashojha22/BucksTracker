@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+{% block title %}{% endblock %}</title>
+
+    <!--bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+    {# Custom CSS#}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    {# Fonts#}
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Russo+One" rel="stylesheet">
+
+
+	<style>
+
+.navbar{
+height:auto;
+font-size:16px;
+}
+
+@media only screen and (min-width: 600px) {
+  /* For tablets: */
+  .col-s-1 {width: 8.33%;}
+  .col-s-2 {width: 16.66%;}
+  .col-s-3 {width: 25%;}
+  .col-s-4 {width: 33.33%;}
+  .col-s-5 {width: 41.66%;}
+  .col-s-6 {width: 50%;}
+  .col-s-7 {width: 58.33%;}
+  .col-s-8 {width: 66.66%;}
+  .col-s-9 {width: 75%;}
+  .col-s-10 {width: 83.33%;}
+  .col-s-11 {width: 91.66%;}
+  .col-s-12 {width: 100%;}
+}
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .col-1 {width: 8.33%;}
+  .col-2 {width: 16.66%;}
+  .col-3 {width: 25%;}
+  .col-4 {width: 33.33%;}
+  .col-5 {width: 41.66%;}
+  .col-6 {width: 50%;}
+  .col-7 {width: 58.33%;}
+  .col-8 {width: 66.66%;}
+  .col-9 {width: 75%;}
+  .col-10 {width: 83.33%;}
+  .col-11 {width: 91.66%;}
+  .col-12 {width: 100%;}
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+      <a class="navbar-brand" href="{% url 'index' %}"><h4>
+    <span>B</span>
+    <span>u</span>
+    <span>c</span>
+    <span>k</span>
+    <span>s</span>
+	<span> <img src="{% static 'images/logo.png' %}" width="30px" height="30px" class="d-inline-block align-top" alt="" ></span>
+    <span>T</span>
+    <span>r</span>
+    <span>a</span>
+	<span>c</span>
+	<span>k</span>
+	<span>e</span>
+	<span>r</span>
+	</h4></a>
+
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav"   >
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+           {% if user.is_authenticated%}
+            <a class="nav-item nav-link font-italic font-weight-bold" href="{% url 'money:split_bill_list' %}">Spilt Bills</a>
+            <a class="nav-item nav-link font-italic font-weight-bold" href="{% url 'money:track_expenses' %}">Track expenses </a>
+           <a class="nav-item nav-link font-italic font-weight-bold" href="{% url 'money:debt_list' %}">Debt</a>
+
+
+            <a class="nav-item nav-link font-italic font-weight-bold" href="{% url 'logout' %}">Logout</a>
+            {% else %}
+            <a class="nav-item nav-link font-italic font-weight-bold" href="{% url 'user_login' %}">LogIn</a>
+
+                  <a class="nav-item nav-link font-italic font-weight-bold" href="{% url 'signup' %}">Signup</a>
+            {% endif %}
+        </div>
+  </div>
+
+    </nav>
+
+<div >
+{%  block content %}
+{% endblock %}
+</div>
+
+<!-- Footer -->
+
+<footer class="page-footer font-small blue pt-4">
+<img class="img-responsive" src="" alt="" width="100%" height="5px">
+
+    <!-- Footer Links -->
+    <div class="container-fluid text-center text-md-left">
+
+      <!-- Grid row -->
+      <div class="row">
+
+        <!-- Grid column -->
+        <div class="col-md-6 mt-md-0 mt-3">
+
+          <!-- Content -->
+          <h5 class="text-uppercase">Bucks Tracker</h5>
+          <p>Perfect destination for your Bucks Management.</p>
+
+        </div>
+        <!-- Grid column -->
+
+        <hr class="clearfix w-100 d-md-none pb-3">
+
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-3 mb-md-0 mb-3">
+
+            <!-- Links -->
+            <h5 class="text-uppercase">Navigation</h5>
+<a class="nav-item nav-link font-italic font-weight-bold" href="{% url 'admin:login' %}">Admin</a>
+
+      </div>
+      <!-- Grid row -->
+
+    </div>
+    <!-- Footer Links -->
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2019 Copyright:
+      <a href="">Bucks Tracker</a>
+    </div>
+    <!-- Copyright -->
+
+  </footer>
+  <!-- Footer -->
+
+  </body>
+</html>

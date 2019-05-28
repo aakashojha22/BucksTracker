@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% extends "money/base.html" %}
+{% block title %}Debt   {% endblock %}
+{% block content %}
+
+<div class="jumbotron">
+<a type="button" class="btn btn-primary" href="{% url 'money:add_debt' %}" >Add Debt</a>
+   <hr><br>
+<div class="container">
+{% if debt %}
+    <table class="table table-hover">
+<thead>
+    <tr>
+      <th scope="col"><i><h3>Name</h3></i></th>
+      <th scope="col"><i><h3>Debt Type</h3></i></th>
+     <th scope="col"><i><h3>Date</h3></i></th>
+        <th scope="col"><i><h3>Amount</h3></i></th>
+     <th scope="col"><i><h3>Description</h3></i></th>
+
+    </tr>
+  </thead>
+  <tbody class=".table-hover">
+
+  {% else %}
+  <h3><i>&nbsp No Debt added!!!</i></h3>
+
+
+{% endif %}
+
+
+
+    {% for data in debt %}
+    {% ifequal user.username|cut:" " data.debt_user|cut:" "%}
+    <tr>
+      <td><b>{{data.debt_to_user}}</b></td>
+      <td scope="row">{{data.type_of_debt}}</td>
+        <td><b>{{data.date}}</b></td>
+        <td><b>{{data.amount}}</b></td>
+         <td><b>{{data.description}}</b></td>
+    </tr>
+
+            {% endifequal %}
+                {% endfor %}
+ </tbody>
+    </table>
+        </div>
+
+
+{% endblock %}

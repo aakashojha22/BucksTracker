@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% extends "accounts/base.html" %}
+{% block title %}Login  {% endblock %}
+{% block content %}
+
+<div class="jumbotron">
+   {% if user.is_authenticated%}
+    <h1>already login</h1>
+{% else %}
+
+{%  if message %}
+<script>
+
+    alert('{{ message }}');
+</script>
+    {% endif %}
+    <h1>Please Login</h1>
+
+    <form class="form-inline" action="{% url 'user_login' %}" method="POST">
+        {% csrf_token %}
+
+        <label>Username: </label>&nbsp;&nbsp;
+        <input type="text" name="username" placeholder="Enter your Username">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label>Password: </label>&nbsp;&nbsp;
+        <input type="password" name="password" placeholder="Enter your Password" >
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="submit" class="btn btn-primary mb-2" name="" value="Login">
+
+
+    </form>
+    {% endif %}
+</div>
+
+{% endblock %}

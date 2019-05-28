@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{% extends "money/base.html" %}
+{% block title %}Track Expenses  {% endblock %}
+{% block content %}
+
+<div class="jumbotron">
+<a type="button" class="btn btn-primary" href="{% url 'money:add_expenses' %}" >Add Expenses</a>
+   <hr><br>
+<div class="container">
+{% if expenses %}
+    <table class="table table-hover">
+<thead>
+    <tr>
+      <th scope="col"><i><h3>Tittle</h3></i></th>
+      <th scope="col"><i><h3>Date</h3></i></th>
+     <th scope="col"><i><h3>Amount</h3></i></th>
+     <th scope="col"><i><h3>Description</h3></i></th>
+
+    </tr>
+  </thead>
+  <tbody class=".table-hover">
+
+  {% else %}
+  <h3><i>&nbsp No Expense added!!!</i></h3>
+
+
+{% endif %}
+
+
+
+    {% for data in expenses %}
+    {% ifequal user.username|cut:" " data.user|cut:" "%}
+    <tr>
+      <td><b>{{data.title}}</b></td>
+      <td scope="row">{{data.date}}</td>
+        <td><b>{{data.amount}}</b></td>
+        <td><b>{{data.description}}</b></td>
+    </tr>
+
+            {% endifequal %}
+                {% endfor %}
+ </tbody>
+    </table>
+        </div>
+
+
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'accounts/base.html' %}
+
+
+{% load staticfiles %}
+{% block title %}Bucks Tracker{% endblock %}
+{% load bootstrap4 %}
+{% block content %}
+
+<div class="container">
+    <br>
+    <h3>Welcome to.......</h3>
+    <br>
+    <br>
+
+</div>
+<div class="jumbotron">
+ {% if user.is_authenticated%}
+<div class="card" style="width: 18rem;">
+  <img src="{{ user.userinfo.profile_pic.url }}" class="card-img-top" alt="..." height="200px">
+  <div class="card-body">
+    <h5 class="card-title">Hi <a href="">{{user.username}}</a>!!!!</h5>
+    <p class="card-text">
+Welcome to the Buck Tracker! Track your expenses and money with us.</p>
+  </div>
+</div>
+    </div>
+{% else %}
+<h1>
+    <span>B</span>
+    <span>u</span>
+    <span>c</span>
+    <span>k</span>
+    <span>s</span>
+	<span> <img src="{% static 'images/logo.png' %}" width="60px" height="60px" class="d-inline-block align-top" alt="" ></span>
+    <span>T</span>
+    <span>r</span>
+    <span>a</span>
+	<span>c</span>
+	<span>k</span>
+	<span>e</span>
+	<span>r</span>
+	</h1></a>
+{% endif %}
+
+{% endblock %}

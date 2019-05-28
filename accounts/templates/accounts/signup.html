@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% extends "accounts/base.html" %}
+{% block title %}SignUp{% endblock %}
+
+{% load staticfiles %}
+{% load bootstrap4 %}
+{% block content %}
+
+ {% if user.is_authenticated%}
+    <h1>already login</h1>
+{% else %}
+
+
+
+<div class="jumbotron">
+    {% if signup %}
+    <h1>Thank you for Signup!!</h1>
+
+    {% else %}
+    <h1>Welcome to Signup!!</h1>
+    <h3>Fill your detail here!</h3>
+    <form enctype="multipart/form-data"  method="post">
+        {% csrf_token %}
+
+        {% bootstrap_form user_form %}
+{% bootstrap_form profile_form %}
+        <input type="submit" name="" value="Signup" class="btn btn-primary mb-2">
+    </form>
+
+    {% endif %}
+     {% endif %}
+</div>
+{% endblock %}

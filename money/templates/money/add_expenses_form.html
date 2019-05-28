@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% extends "money/base.html" %}
+{% block title %}Add Expenses  {% endblock %}
+{% load bootstrap4 %}
+{% block content %}
+
+
+    <div class="container" ><h1><i> Add Expenses</i></h1></div>
+    <div class="container">
+    <form method="POST" >
+    {% csrf_token %}
+    {% bootstrap_form form %}
+
+      <label><p></p></label>
+      <br>
+    <input type="submit" class="btn btn-primary" value="Add Expenses">
+    </form>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,51 @@
+login - 	1. name
+	2. username
+	3. email
+	4.password
+	5.is_active()
+	6.phone
+	7. salary
+	
+
+expenses:- 
+	1. name(f.k.)
+	2. amount
+	4.despcrition
+	5. type of expense
+	6. date and time
+
+spilt bill:-
+	1. amount(+ve)
+	2.descrption
+	3.date and time
+	4. no of people(+ve)
+	5. spilt_amount()
+	6. name of people include
+
+money to be return:-
+	0.name (f.k.)
+	1. amount 
+	2. date taken
+	3. return date
+	4. name of to return
+	5. for what
+
+money to be taken :-
+	0.name (f.k.)
+	1. amount
+	2. date given
+	3. date to taken
+	4. take from
+	5. given for what
+
+functions 
+
+	month wise sort expenses()
+	
+
+
+
+
+spilt bill
+track expenses
+debt 
